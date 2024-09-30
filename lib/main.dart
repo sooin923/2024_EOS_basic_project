@@ -68,7 +68,7 @@ class MyHomePage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 15,
+                        height: 15,
                       ),
                       Text('hello!')
                     ]),
