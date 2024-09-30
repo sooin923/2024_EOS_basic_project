@@ -11,65 +11,75 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'EOS ToDoList',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
+        fontFamily: 'Pretendard',
         useMaterial3: true,
       ),
-      home:const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+        backgroundColor: Color(0xFFA4C639).withOpacity(0.1),
         title: Text('EOS ToDoList'),
-        leading: Icon(Icons.check_box_outlined),
+        leading: Image.asset('assets/images/eos_logo.png'),
       ),
 
-      body: Container(
-        color: Colors.lightGreen.withOpacity(0.7),
-        padding: EdgeInsets.all(25),
-        height: 200,
 
-        child:Row(
-          children: [
-            Container(
-              width: 150,
-              height: 150,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(width:10, color: Colors.grey),
-              ),
-              child:Center(
-                child: Icon(
-                  Icons.person,
-                  color: Colors.grey,
-                  size: 100,
-                )
-              )
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+      body: Column(
+        children: [
+          Container(
+            padding: EdgeInsets.all(25),
+            height: 200,
+            child:Row(
               children: [
-                Text('EOS'),
-                Text(
-                  '조수인',
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  width: 140,
+                  height: 140,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(width:10, color: Colors.grey),
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child:Center(
+                    child: Image.asset('assets/images/eos_logo.png')
                   ),
                 ),
-                Text('hello!')
-              ])
-          ])));
+                SizedBox(
+                  width: 35,
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '조수인',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      Text('hello!')
+                    ]),
+                )
+              ])),
+          Container(
+            height: 500,
+            color: Color(0xFFA4C639).withOpacity(0.1),
+          ),
+
+        ],
+      ));
   }
 }
